@@ -394,14 +394,14 @@
           <GroupName>MesDrivers</GroupName>
           <Files>
             <File>
-              <FileName>MyTimer.c</FileName>
+              <FileName>Driver_GPIO.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\Drivers\MyTimer.c</FilePath>
+              <FilePath>.\Drivers\Driver_GPIO.c</FilePath>
             </File>
             <File>
-              <FileName>MyTimer.h</FileName>
+              <FileName>Driver_GPIO.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\Drivers\MyTimer.h</FilePath>
+              <FilePath>.\Drivers\Driver_GPIO.h</FilePath>
             </File>
           </Files>
         </Group>
@@ -801,14 +801,14 @@
           <GroupName>MesDrivers</GroupName>
           <Files>
             <File>
-              <FileName>MyTimer.c</FileName>
+              <FileName>Driver_GPIO.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\Drivers\MyTimer.c</FilePath>
+              <FilePath>.\Drivers\Driver_GPIO.c</FilePath>
             </File>
             <File>
-              <FileName>MyTimer.h</FileName>
+              <FileName>Driver_GPIO.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\Drivers\MyTimer.h</FilePath>
+              <FilePath>.\Drivers\Driver_GPIO.h</FilePath>
             </File>
           </Files>
         </Group>

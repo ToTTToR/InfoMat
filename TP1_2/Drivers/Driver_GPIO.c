@@ -7,8 +7,8 @@ void MyGPIO_Init (GPIO_TypeDef * GPIO, char GPIO_Pin, char GPIO_Conf){
 		GPIO->CRL |= ((unsigned int)GPIO_Conf << (unsigned int)GPIO_Pin*4);
 	}
 	else{
-		GPIO->CRH &= ~((unsigned int)0xF << (unsigned int)GPIO_Pin*4);
-		GPIO->CRH |= ((unsigned int)GPIO_Conf << (unsigned int)GPIO_Pin*4);
+		GPIO->CRH &= ~((unsigned int)0xF << (unsigned int)(GPIO_Pin-8)*4);
+		GPIO->CRH |= ((unsigned int)GPIO_Conf << (unsigned int)(GPIO_Pin-8)*4);
 	}
 }
 
