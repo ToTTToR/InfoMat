@@ -1,4 +1,5 @@
 #include "MyTimer.h"
+#include "Driver_GPIO.h"
 
 void MyTimer_Base_Init (TIM_TypeDef* Timer, unsigned shortARR, unsigned shortPSC){
 	if(Timer==TIM1)
@@ -67,4 +68,83 @@ void TIM3_IRQHandler(){
 void TIM4_IRQHandler(){
 	TIM4->SR &= ~(1);
 	(*pFnc4)();
+}
+
+void MyTimer_PWM(TIM_TypeDef*Timer ,char Channel){
+	
+	//Configuration des pins correspondant aux channels en mode alternate push-pull
+	if(Timer==TIM1){
+		Timer->BDTR |= (1<<15);
+		if (Channel==1){
+			MyGPIO_Init (GPIOA, 8, AltOut_Ppull);
+		} else if(Channel==2){
+			MyGPIO_Init (GPIOA, 9, AltOut_Ppull);
+		} else if(Channel==3){
+			MyGPIO_Init (GPIOA, 10, AltOut_Ppull);
+		} else {
+			MyGPIO_Init (GPIOA, 11, AltOut_Ppull);
+		}
+	} else if(Timer==TIM2){
+		if (Channel==1){
+			MyGPIO_Init (GPIOA, 0, AltOut_Ppull);
+		} else if(Channel==2){
+			MyGPIO_Init (GPIOA, 1, AltOut_Ppull);
+		} else if(Channel==3){
+			MyGPIO_Init (GPIOA, 2, AltOut_Ppull);
+		} else {
+			MyGPIO_Init (GPIOA, 3, AltOut_Ppull);
+		}
+	} else if(Timer==TIM3){
+		if (Channel==1){
+			MyGPIO_Init (GPIOA, 6, AltOut_Ppull);
+		} else if(Channel==2){
+			MyGPIO_Init (GPIOA, 7, AltOut_Ppull);
+		} else if(Channel==3){
+			MyGPIO_Init (GPIOB, 0, AltOut_Ppull);
+		} else {
+			MyGPIO_Init (GPIOB, 1, AltOut_Ppull);
+		}
+	} else {
+		if (Channel==1){
+			MyGPIO_Init (GPIOB, 6, AltOut_Ppull);
+		} else if(Channel==2){
+			MyGPIO_Init (GPIOB, 7, AltOut_Ppull);
+		} else if(Channel==3){
+			MyGPIO_Init (GPIOB, 8, AltOut_Ppull);
+		} else {
+			MyGPIO_Init (GPIOB, 9, AltOut_Ppull);
+		}
+	}
+	
+	// Configuration Channel en mode PWM
+	if(Channel==1){
+		Timer->CCMR1 &= ~(7<<4); 
+		Timer->CCMR1 |= (6<<4);
+		Timer->CCER |= 1;
+	} else if(Channel==2){
+		Timer->CCMR1 &= ~(7<<12);
+		Timer->CCMR1 |= (6<<12);
+		Timer->CCER |= (1<<4);
+	} else if(Channel==3){
+		Timer->CCMR2 &= ~(7<<4); 
+		Timer->CCMR2 |= (6<<4);
+		Timer->CCER |= (1<<8);
+	} else {
+		Timer->CCMR2 &= ~(7<<12); 
+		Timer->CCMR2 |= (6<<12);
+		Timer->CCER |= (1<<12);
+	}
+}
+
+void Set_PWM_CycleRate(TIM_TypeDef*Timer ,char Channel,float rate){
+	int ccr_value = (int)((rate/100.0)*Timer->ARR);
+	if(Channel==1){
+		Timer->CCR1 = ccr_value;
+	} else if(Channel==2){
+		Timer->CCR2 = ccr_value;
+	} else if(Channel==3){
+		Timer->CCR3 = ccr_value;
+	} else {
+		Timer->CCR4 = ccr_value;
+	}
 }

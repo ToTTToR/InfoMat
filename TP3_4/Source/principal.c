@@ -8,7 +8,7 @@ void Callback(){
 
 int main(void)
 	{	
-		MyTimer_Base_Init(TIM1, 4999, 7199);
+		/*MyTimer_Base_Init(TIM1, 4999, 7199);
 		MyTimer_ActiveIT(TIM1,1,Callback);
 		MyTimer_Base_Start (TIM1);
 		
@@ -25,7 +25,11 @@ int main(void)
 		MyTimer_Base_Start (TIM4);
 		
 		MyGPIO_Init (GPIOA, 5, Out_Ppull);
-			
+		*/
+		MyTimer_Base_Init(TIM4, 719,0);
+		MyTimer_PWM(TIM4,1) ;
+		Set_PWM_CycleRate(TIM4,1,20.0);
+		MyTimer_Base_Start(TIM4);
 		while(1){
 			
 		}

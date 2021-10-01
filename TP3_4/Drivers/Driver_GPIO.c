@@ -5,11 +5,11 @@ void MyGPIO_Init (GPIO_TypeDef * GPIO, char GPIO_Pin, char GPIO_Conf){
 	if(GPIO==GPIOA)
 		RCC->APB2ENR |= RCC_APB2ENR_IOPAEN;
 	else if(GPIO==GPIOB)
-		RCC->APB1ENR |= RCC_APB2ENR_IOPBEN;
+		RCC->APB2ENR |= RCC_APB2ENR_IOPBEN;
 	else if(GPIO==GPIOC)
-		RCC->APB1ENR |= RCC_APB2ENR_IOPCEN;
+		RCC->APB2ENR |= RCC_APB2ENR_IOPCEN;
 	else 
-		RCC->APB1ENR |= RCC_APB2ENR_IOPDEN;
+		RCC->APB2ENR |= RCC_APB2ENR_IOPDEN;
 	if (GPIO_Pin < 8){
 		GPIO->CRL &= ~((unsigned int)0xF << (unsigned int)GPIO_Pin*4);
 		GPIO->CRL |= ((unsigned int)GPIO_Conf << (unsigned int)GPIO_Pin*4);

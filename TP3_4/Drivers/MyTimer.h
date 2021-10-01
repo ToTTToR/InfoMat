@@ -30,5 +30,14 @@ void TIM1_UP_IRQHandler(void);
 void TIM2_IRQHandler(void);
 void TIM3_IRQHandler(void);
 void TIM4_IRQHandler(void);
+
+/* 
+**@brief*@param   . . . .*
+@Note    Active  le  channel spé c i f i é su
+Timerr  le  timer  spé c i f i é
+*la  gestion  de  la  configuration   I /O n ’ est  pas  faite  dans  cette  fonction*ni  le  réglage de  la période de  la PWM (ARR, PSC)
+*/
+void MyTimer_PWM(TIM_TypeDef*Timer ,char Channel ) ;
+void Set_PWM_CycleRate(TIM_TypeDef*Timer ,char Channel,float rate);
 	
 #endif
