@@ -399,19 +399,14 @@
               <FilePath>.\Drivers\MyTimer.c</FilePath>
             </File>
             <File>
-              <FileName>MyTimer.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\Drivers\MyTimer.h</FilePath>
-            </File>
-            <File>
-              <FileName>Driver_GPIO.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\Drivers\Driver_GPIO.h</FilePath>
-            </File>
-            <File>
               <FileName>Driver_GPIO.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\Drivers\Driver_GPIO.c</FilePath>
+            </File>
+            <File>
+              <FileName>Driver_ADC.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Drivers\Driver_ADC.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -816,19 +811,14 @@
               <FilePath>.\Drivers\MyTimer.c</FilePath>
             </File>
             <File>
-              <FileName>MyTimer.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\Drivers\MyTimer.h</FilePath>
-            </File>
-            <File>
-              <FileName>Driver_GPIO.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\Drivers\Driver_GPIO.h</FilePath>
-            </File>
-            <File>
               <FileName>Driver_GPIO.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\Drivers\Driver_GPIO.c</FilePath>
+            </File>
+            <File>
+              <FileName>Driver_ADC.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Drivers\Driver_ADC.c</FilePath>
             </File>
           </Files>
         </Group>
